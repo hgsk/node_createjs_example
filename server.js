@@ -48,6 +48,11 @@ io.sockets.on('connection', function(socket){
   socket.on('disconnect', function(){
     console.log('Client Disconnected.');
   });
+  socket.on('count',function(data){
+    socket.broadcast.emit('coin_count',data);
+    socket.emit('coin_count',data);
+    console.log('Client count.');
+  })
 });
 
 
